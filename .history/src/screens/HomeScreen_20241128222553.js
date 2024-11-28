@@ -11,7 +11,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import Loader from '../components/Loader';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Entypo from 'react-native-vector-icons/Entypo';
 const HomeScreen = () => {
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
@@ -44,7 +43,7 @@ const HomeScreen = () => {
             <Text style={styles.tabButtonText}>Podcast & Shows</Text>
           </Pressable>
         </View>
-        {/*  */}
+
         <View>
           <Pressable style={styles.likedSongs}>
             <LinearGradient colors={['#33006F', '#FFFFFF']}>
@@ -70,10 +69,10 @@ const HomeScreen = () => {
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
-                <Entypo name="moon" color="white" size={24} />
+                <AntDesign name="star" color="white" size={24} />
               </Pressable>
             </LinearGradient>
-            <Text style={styles.likedSongsText}>Rock & Roll </Text>
+            <Text style={styles.likedSongsText}>Liked </Text>
           </Pressable>
 
           <Pressable style={styles.likedSongs}>
@@ -85,10 +84,10 @@ const HomeScreen = () => {
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
-                <AntDesign name="star" color="white" size={24} />
+                <AntDesign name="heart" color="white" size={24} />
               </Pressable>
             </LinearGradient>
-            <Text style={styles.likedSongsText}>Caz</Text>
+            <Text style={styles.likedSongsText}>Liked Songs</Text>
           </Pressable>
         </View>
       </ScrollView>
@@ -144,11 +143,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    borderRadius: 5,
+    borderRadius: 4,
     marginHorizontal: 10,
     marginVertical: 8,
     backgroundColor: '#202020',
-    overflow: 'hidden',
   },
   likedSongsText: {
     color: 'white',

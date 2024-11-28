@@ -11,7 +11,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import Loader from '../components/Loader';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Entypo from 'react-native-vector-icons/Entypo';
 const HomeScreen = () => {
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
@@ -44,7 +43,7 @@ const HomeScreen = () => {
             <Text style={styles.tabButtonText}>Podcast & Shows</Text>
           </Pressable>
         </View>
-        {/*  */}
+
         <View>
           <Pressable style={styles.likedSongs}>
             <LinearGradient colors={['#33006F', '#FFFFFF']}>
@@ -58,37 +57,6 @@ const HomeScreen = () => {
                 <AntDesign name="heart" color="white" size={24} />
               </Pressable>
             </LinearGradient>
-            <Text style={styles.likedSongsText}>Liked Songs</Text>
-          </Pressable>
-
-          <Pressable style={styles.likedSongs}>
-            <LinearGradient colors={['#33006F', '#FFFFFF']}>
-              <Pressable
-                style={{
-                  width: 55,
-                  height: 55,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <Entypo name="moon" color="white" size={24} />
-              </Pressable>
-            </LinearGradient>
-            <Text style={styles.likedSongsText}>Rock & Roll </Text>
-          </Pressable>
-
-          <Pressable style={styles.likedSongs}>
-            <LinearGradient colors={['#33006F', '#FFFFFF']}>
-              <Pressable
-                style={{
-                  width: 55,
-                  height: 55,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <AntDesign name="star" color="white" size={24} />
-              </Pressable>
-            </LinearGradient>
-            <Text style={styles.likedSongsText}>Caz</Text>
           </Pressable>
         </View>
       </ScrollView>
@@ -139,21 +107,5 @@ const styles = StyleSheet.create({
   tabButtonText: {
     color: 'white',
     fontSize: 15,
-  },
-  likedSongs: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    borderRadius: 5,
-    marginHorizontal: 10,
-    marginVertical: 8,
-    backgroundColor: '#202020',
-    overflow: 'hidden',
-  },
-  likedSongsText: {
-    color: 'white',
-    fontSize: 13,
-    fontWeight: 'bold',
-    marginLeft: 10,
   },
 });

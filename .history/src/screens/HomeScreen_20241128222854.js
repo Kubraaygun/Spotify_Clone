@@ -44,7 +44,7 @@ const HomeScreen = () => {
             <Text style={styles.tabButtonText}>Podcast & Shows</Text>
           </Pressable>
         </View>
-        {/*  */}
+
         <View>
           <Pressable style={styles.likedSongs}>
             <LinearGradient colors={['#33006F', '#FFFFFF']}>

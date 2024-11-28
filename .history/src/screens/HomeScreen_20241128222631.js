@@ -44,7 +44,7 @@ const HomeScreen = () => {
             <Text style={styles.tabButtonText}>Podcast & Shows</Text>
           </Pressable>
         </View>
-        {/*  */}
+
         <View>
           <Pressable style={styles.likedSongs}>
             <LinearGradient colors={['#33006F', '#FFFFFF']}>
@@ -73,7 +73,7 @@ const HomeScreen = () => {
                 <Entypo name="moon" color="white" size={24} />
               </Pressable>
             </LinearGradient>
-            <Text style={styles.likedSongsText}>Rock & Roll </Text>
+            <Text style={styles.likedSongsText}>Liked </Text>
           </Pressable>
 
           <Pressable style={styles.likedSongs}>
@@ -88,7 +88,7 @@ const HomeScreen = () => {
                 <AntDesign name="star" color="white" size={24} />
               </Pressable>
             </LinearGradient>
-            <Text style={styles.likedSongsText}>Caz</Text>
+            <Text style={styles.likedSongsText}>Liked Songs</Text>
           </Pressable>
         </View>
       </ScrollView>
@@ -144,11 +144,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    borderRadius: 5,
+    borderRadius: 4,
     marginHorizontal: 10,
     marginVertical: 8,
     backgroundColor: '#202020',
-    overflow: 'hidden',
   },
   likedSongsText: {
     color: 'white',

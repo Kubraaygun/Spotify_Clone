@@ -44,7 +44,7 @@ const HomeScreen = () => {
             <Text style={styles.tabButtonText}>Podcast & Shows</Text>
           </Pressable>
         </View>
-        {/*  */}
+
         <View>
           <Pressable style={styles.likedSongs}>
             <LinearGradient colors={['#33006F', '#FFFFFF']}>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    borderRadius: 5,
+    borderRadius: 49,
     marginHorizontal: 10,
     marginVertical: 8,
     backgroundColor: '#202020',

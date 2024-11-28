@@ -46,7 +46,7 @@ const BottomTabs = () => {
             focused ? (
               <Entypo name="home" color="white" size={24} />
             ) : (
-              <AntDesign name="home" color="white" size={21} />
+              <AntDesign name="home" color="white" size={24} />
             ),
         }}
         name={HOME}
@@ -65,7 +65,7 @@ const BottomTabs = () => {
             focused ? (
               <Ionicons name="person" color="white" size={24} />
             ) : (
-              <Ionicons name="person-outline" color="white" size={21} />
+              <Ionicons name="person-outline" color="white" size={24} />
             ),
         }}
         name={PROFILE}
