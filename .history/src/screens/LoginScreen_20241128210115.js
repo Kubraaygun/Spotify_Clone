@@ -6,7 +6,6 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
-import {MAIN} from '../utils/routes';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -23,9 +22,7 @@ const LoginScreen = () => {
         <Text style={styles.loginTitle}>Millions of Songs Free on Spotify</Text>
         <View style={{height: 80}} />
 
-        <Pressable
-          style={styles.loginButton}
-          onPress={() => navigation.navigate(MAIN)}>
+        <Pressable style={styles.loginButton}>
           <Text>Sign in with Spotify!</Text>
         </Pressable>
 

@@ -23,13 +23,13 @@ const LoginScreen = () => {
         <Text style={styles.loginTitle}>Millions of Songs Free on Spotify</Text>
         <View style={{height: 80}} />
 
-        <Pressable
-          style={styles.loginButton}
-          onPress={() => navigation.navigate(MAIN)}>
+        <Pressable style={styles.loginButton}>
           <Text>Sign in with Spotify!</Text>
         </Pressable>
 
-        <Pressable style={styles.button}>
+        <Pressable
+          style={styles.button}
+          onPress={() => navigation.navigate({MAIN})}>
           <MaterialIcons name="phone-android" color="white" size={24} />
           <Text style={styles.buttonText}>Continue with phone number</Text>
         </Pressable>

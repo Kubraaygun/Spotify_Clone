@@ -23,9 +23,8 @@ const LoginScreen = () => {
         <Text style={styles.loginTitle}>Millions of Songs Free on Spotify</Text>
         <View style={{height: 80}} />
 
-        <Pressable
-          style={styles.loginButton}
-          onPress={() => navigation.navigate(MAIN)}>
+        <Pressable style={styles.loginButton}>
+          onPress={() => navigation.navigate({MAIN})}
           <Text>Sign in with Spotify!</Text>
         </Pressable>
 

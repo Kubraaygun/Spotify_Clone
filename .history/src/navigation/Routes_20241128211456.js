@@ -7,8 +7,6 @@ import ProfileScreen from '../screens/ProfileScreen';
 import SongInfoScreen from '../screens/SongInfoScreen';
 import {HOME, INFO, LIKED, LOGIN, MAIN, PROFILE} from '../utils/routes';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Entypo from 'react-native-vector-icons/Entypo';
 
 const Tab = createBottomTabNavigator();
 

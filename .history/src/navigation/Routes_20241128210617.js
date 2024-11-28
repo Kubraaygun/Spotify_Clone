@@ -7,8 +7,6 @@ import ProfileScreen from '../screens/ProfileScreen';
 import SongInfoScreen from '../screens/SongInfoScreen';
 import {HOME, INFO, LIKED, LOGIN, MAIN, PROFILE} from '../utils/routes';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Entypo from 'react-native-vector-icons/Entypo';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,39 +16,9 @@ const BottomTabs = () => {
       screenOptions={{
         tabBarStyle: {
           backgroundColor: '#131624',
-          shadowOpacity: 0.3,
-          shadowRadius: 4,
-          shadowOffset: {
-            width: 0,
-            height: -10,
-          },
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: 90,
-          borderWidth: 0,
         },
       }}>
-      <Tab.Screen
-        options={{
-          headerShown: false,
-          tabBarLabel: 'Home',
-          tabBarLabelStyle: {
-            color: 'white',
-            fontSize: 13,
-            fontWeight: '500',
-          },
-          tabBarIcon: ({focused}) =>
-            focused ? (
-              <Entypo name="home" color="white" size={24} />
-            ) : (
-              <AntDesign name="home" color="white" size={24} />
-            ),
-        }}
-        name={HOME}
-        component={HomeScreen}
-      />
+      <Tab.Screen name={HOME} component={HomeScreen} />
       <Tab.Screen name={PROFILE} component={ProfileScreen} />
     </Tab.Navigator>
   );

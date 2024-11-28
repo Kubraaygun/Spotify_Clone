@@ -25,7 +25,7 @@ const LoginScreen = () => {
 
         <Pressable
           style={styles.loginButton}
-          onPress={() => navigation.navigate(MAIN)}>
+          onPress={() => navigation.navigate({MAIN})}>
           <Text>Sign in with Spotify!</Text>
         </Pressable>
 
