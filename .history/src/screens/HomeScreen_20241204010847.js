@@ -96,7 +96,7 @@ const HomeScreen = () => {
           </Pressable>
 
           <Text style={styles.sectionTitle}>Your Top Artist</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <ScrollView horizontal>
             {artists?.map((artist, index) => (
               <ArtistCard key={index} artist={artist} />
             ))}

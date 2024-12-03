@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   artistImage: {
     width: 100,
     height: 100,
-    borderRadius: 50,
   },
   artistName: {
     color: 'white',

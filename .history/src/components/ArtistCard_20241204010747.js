@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   artistContainer: {
     margin: 10,
     width: 100,
+    flexDirection: 'row',
   },
   artistImage: {
     width: 100,
