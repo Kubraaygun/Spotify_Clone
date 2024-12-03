@@ -13,7 +13,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {ArtistContext} from '../context/ArtistContext';
-import ArtistCard from '../components/ArtistCard';
 const HomeScreen = () => {
   const {artists, loading, error} = useContext(ArtistContext);
   console.log(artists);
@@ -98,7 +97,7 @@ const HomeScreen = () => {
           <Text style={styles.sectionTitle}>Your Top Artist</Text>
           <ScrollView>
             {artists?.map((artist, index) => (
-              <ArtistCard key={index} artist={artist} />
+              <ArtistCard />
             ))}
           </ScrollView>
         </View>
