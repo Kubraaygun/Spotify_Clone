@@ -13,7 +13,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {ArtistContext} from '../context/ArtistContext';
-import ArtistCard from '../components/ArtistCard';
 const HomeScreen = () => {
   const {artists, loading, error} = useContext(ArtistContext);
   console.log(artists);
@@ -95,12 +94,7 @@ const HomeScreen = () => {
             <Text style={styles.likedSongsText}>Caz</Text>
           </Pressable>
 
-          <Text style={styles.sectionTitle}>Your Top Artist</Text>
-          <ScrollView>
-            {artists?.map((artist, index) => (
-              <ArtistCard key={index} artist={artist} />
-            ))}
-          </ScrollView>
+          <Text>Your Top Artist</Text>
         </View>
       </ScrollView>
     </LinearGradient>
@@ -166,12 +160,5 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: 'bold',
     marginLeft: 10,
-  },
-  sectionTitle: {
-    color: 'white',
-    marginHorizontal: 10,
-    fontSize: 19,
-    fontWeight: 'bold',
-    marginTop: 10,
   },
 });
