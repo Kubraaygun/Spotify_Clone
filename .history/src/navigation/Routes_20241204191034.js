@@ -5,7 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LikedSongScreen from '../screens/SongsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import SongInfoScreen from '../screens/SongInfoScreen';
-import {HOME, INFO, LIKED, LOGIN, MAIN, PROFILE, SONGS} from '../utils/routes';
+import {HOME, INFO, LIKED, LOGIN, MAIN, PROFILE} from '../utils/routes';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -84,7 +84,7 @@ const Routes = () => {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name={LOGIN} component={LoginScreen} />
         <Stack.Screen name={MAIN} component={BottomTabs} />
-        <Stack.Screen name={SONGS} component={SongsScreen} />
+        <Stack.Screen name={LIKED} component={SongsScreen} />
         <Stack.Screen name={INFO} component={SongInfoScreen} />
       </Stack.Navigator>
     </NavigationContainer>

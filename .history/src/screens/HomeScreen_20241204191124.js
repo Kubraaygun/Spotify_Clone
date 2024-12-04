@@ -17,12 +17,7 @@ import ArtistCard from '../components/ArtistCard';
 import {AlbumContext} from '../context/AlbumContext';
 import AlbumCard from '../components/AlbumCard';
 import Error from '../components/Error';
-import {useNavigation} from '@react-navigation/native';
-import {SONGS} from '../utils/routes';
-import SongsScreen from './SongsScreen';
-
 const HomeScreen = () => {
-  const navigation = useNavigation();
   const {artists, loading, error} = useContext(ArtistContext);
   const {
     albums,
@@ -68,9 +63,7 @@ const HomeScreen = () => {
           </View>
           {/*  */}
           <View>
-            <Pressable
-              onPress={() => navigation.navigate('Songs')}
-              style={styles.likedSongs}>
+            <Pressable style={styles.likedSongs}>
               <LinearGradient colors={['#33006F', '#FFFFFF']}>
                 <Pressable
                   style={{
