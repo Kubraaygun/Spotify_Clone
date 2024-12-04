@@ -15,7 +15,6 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {ArtistContext} from '../context/ArtistContext';
 import ArtistCard from '../components/ArtistCard';
 import {AlbumContext} from '../context/AlbumContext';
-import AlbumCard from '../components/AlbumCard';
 const HomeScreen = () => {
   const {artists, loading, error} = useContext(ArtistContext);
   const {
@@ -111,12 +110,7 @@ const HomeScreen = () => {
 
           <View style={{height: 10}} />
 
-          <Text style={styles.sectionTitle}>Populer Albums</Text>
-          <ScrollView horizontal>
-            {albums?.map((album, index) => (
-              <AlbumCard key={index} album={album} />
-            ))}
-          </ScrollView>
+          <Text>Populer Albums</Text>
         </View>
       </ScrollView>
     </LinearGradient>

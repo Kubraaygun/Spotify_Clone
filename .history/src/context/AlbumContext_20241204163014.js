@@ -27,15 +27,17 @@ export const AlbumsProvider = ({children}) => {
 
     try {
       const response = await axios.request(options);
+
       const albumItems = response.data?.albums?.items?.map(item => ({
         uri: item.data.uri,
         name: item.data.name,
         artist: item.data.artists.items[0].profile.name,
-        coverArt: item.data.coverArt?.sources[1]?.url,
+        covertArt: item.data.coverArt?.sources[0]?.url,
         year: item.data.date.year,
       }));
 
       setAlbums(albumItems);
+      console.log(response.data);
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -46,7 +48,6 @@ export const AlbumsProvider = ({children}) => {
   useEffect(() => {
     getData();
   }, []);
-
   return (
     <AlbumContext.Provider value={{albums, loading, error}}>
       {children}
