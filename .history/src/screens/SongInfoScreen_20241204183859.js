@@ -1,6 +1,5 @@
 import {
   Image,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -10,8 +9,6 @@ import {
 import {useRoute, useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SongInfoScreen = () => {
   const navigation = useNavigation();
@@ -38,20 +35,6 @@ const SongInfoScreen = () => {
         <View style={styles.artistWiew}>
           <Text style={styles.artistText}>{artist}</Text>
         </View>
-
-        <Pressable style={styles.controlView}>
-          <Pressable style={styles.downloadButton}>
-            <AntDesign name="arrowdown" size={24} color="white" />
-          </Pressable>
-
-          <View style={styles.playButtonView}>
-            <MaterialCommunityIcons
-              name="cross-bolnisi"
-              size={24}
-              color="white"
-            />
-          </View>
-        </Pressable>
       </ScrollView>
     </LinearGradient>
   );
@@ -83,14 +66,8 @@ const styles = StyleSheet.create({
   },
   artistWiew: {
     marginHorizontal: 12,
-    marginTop: 10,
   },
   artistText: {
-    color: '#909090',
-    fontSize: 13,
-    fontWeight: 'bold',
+    color: 'white',
   },
-  controlView: {},
-  downloadButton: {},
-  playButtonView: {},
 });

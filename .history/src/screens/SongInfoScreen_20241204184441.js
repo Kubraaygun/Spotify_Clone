@@ -44,7 +44,7 @@ const SongInfoScreen = () => {
             <AntDesign name="arrowdown" size={24} color="white" />
           </Pressable>
 
-          <View style={styles.playButtonView}>
+          <View style={styles.playButton}>
             <MaterialCommunityIcons
               name="cross-bolnisi"
               size={24}
@@ -92,5 +92,4 @@ const styles = StyleSheet.create({
   },
   controlView: {},
   downloadButton: {},
-  playButtonView: {},
 });
