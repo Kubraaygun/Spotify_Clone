@@ -1,20 +1,20 @@
 import axios from 'axios';
 import {createContext, useEffect, useState} from 'react';
 
-export const AlbumContext = createContext();
+const ArtistContext = createContext();
 
-export const AlbumsProvider = ({children}) => {
-  const [albums, setAlbums] = useState([]);
+const ArtistProvider = ({children}) => {
+  const [artists, setArtist] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const getData = async () => {
+  const getArtist = async () => {
     const options = {
       method: 'GET',
       url: 'https://spotify23.p.rapidapi.com/search/',
       params: {
-        q: 'Turkiye de populer olanlar',
-        type: 'albums',
+        q: 'Turkiyede populer olanlar',
+        type: 'artists',
         offset: '0',
         limit: '10',
         numberOfTopResults: '5',
@@ -27,15 +27,8 @@ export const AlbumsProvider = ({children}) => {
 
     try {
       const response = await axios.request(options);
-      const albumItems = response.data?.albums?.items?.map(item => ({
-        uri: item.data.uri,
-        name: item.data.name,
-        artist: item.data.artists.items[0].profile.name,
-        coverArt: item.data.coverArt?.sources[1]?.url,
-        year: item.data.date.year,
-      }));
-
-      setAlbums(albumItems);
+      const data = response.data.artists.items;
+      setArtist(data);
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -44,12 +37,16 @@ export const AlbumsProvider = ({children}) => {
   };
 
   useEffect(() => {
-    getData();
+    getArtist();
+    setLoading(false);
+    setError(null);
   }, []);
 
   return (
-    <AlbumContext.Provider value={{albums, loading, error}}>
+    <ArtistContext.Provider value={{artists, loading, error}}>
       {children}
-    </AlbumContext.Provider>
+    </ArtistContext.Provider>
   );
 };
+
+export {ArtistContext, ArtistProvider};

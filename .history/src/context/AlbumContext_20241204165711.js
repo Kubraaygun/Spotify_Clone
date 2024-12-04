@@ -31,10 +31,9 @@ export const AlbumsProvider = ({children}) => {
         uri: item.data.uri,
         name: item.data.name,
         artist: item.data.artists.items[0].profile.name,
-        coverArt: item.data.coverArt?.sources[1]?.url,
+        coverArt: item.data.coverArt.sources[0].url,
         year: item.data.date.year,
       }));
-
       setAlbums(albumItems);
       setLoading(false);
     } catch (error) {

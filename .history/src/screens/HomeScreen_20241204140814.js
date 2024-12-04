@@ -112,7 +112,7 @@ const HomeScreen = () => {
           <View style={{height: 10}} />
 
           <Text style={styles.sectionTitle}>Populer Albums</Text>
-          <ScrollView horizontal>
+          <ScrollView>
             {albums?.map((album, index) => (
               <AlbumCard key={index} album={album} />
             ))}
