@@ -69,7 +69,7 @@ const HomeScreen = () => {
           {/*  */}
           <View>
             <Pressable
-              onPress={() => navigation.navigate('Songs')}
+              onPress={() => navigation.navigate({SONGS})}
               style={styles.likedSongs}>
               <LinearGradient colors={['#33006F', '#FFFFFF']}>
                 <Pressable
