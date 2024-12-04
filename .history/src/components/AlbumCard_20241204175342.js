@@ -5,9 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 const AlbumCard = ({album}) => {
   const navigation = useNavigation();
   return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate('Info', {album})}
-      style={styles.albumContainer}>
+    <TouchableOpacity style={styles.albumContainer}>
       <Image source={{uri: album.coverArt}} style={styles.albumImage} />
       <Text numberOfLines={1} style={styles.albumName}>
         {album.name}

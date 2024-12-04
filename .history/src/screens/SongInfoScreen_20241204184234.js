@@ -11,7 +11,6 @@ import {useRoute, useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SongInfoScreen = () => {
   const navigation = useNavigation();
@@ -41,16 +40,8 @@ const SongInfoScreen = () => {
 
         <Pressable style={styles.controlView}>
           <Pressable style={styles.downloadButton}>
-            <AntDesign name="arrowdown" size={24} color="white" />
+            <AntDesign name="arrowdown " size={24} color="white" />
           </Pressable>
-
-          <View style={styles.playButtonView}>
-            <MaterialCommunityIcons
-              name="cross-bolnisi"
-              size={24}
-              color="white"
-            />
-          </View>
         </Pressable>
       </ScrollView>
     </LinearGradient>
@@ -92,5 +83,4 @@ const styles = StyleSheet.create({
   },
   controlView: {},
   downloadButton: {},
-  playButtonView: {},
 });
