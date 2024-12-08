@@ -1,5 +1,5 @@
 # Spotify Clone Project
-
+Spotıfy
 # Kutuphaneler
 
 - npm install @react-navigation/native
