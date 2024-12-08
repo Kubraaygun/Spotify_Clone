@@ -48,7 +48,7 @@ const SongInfoScreen = () => {
             <MaterialCommunityIcons
               name="cross-bolnisi"
               size={24}
-              color="#1DB954"
+              color="white"
             />
 
             <Pressable style={styles.playButton}>
@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     alignItems: 'center',
+    color: '1DB954',
   },
   playButton: {
     backgroundColor: '#1DB954',

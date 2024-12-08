@@ -48,7 +48,7 @@ const SongInfoScreen = () => {
             <MaterialCommunityIcons
               name="cross-bolnisi"
               size={24}
-              color="#1DB954"
+              color="white"
             />
 
             <Pressable style={styles.playButton}>
@@ -105,17 +105,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: 'bold',
   },
-  controlView: {
-    flexDirection: 'row',
-    marginHorizontal: 10,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+  controlView: {},
   downloadButton: {
     backgroundColor: '#1DB954',
     width: 30,
     height: 30,
-    borderRadius: 15,
+    borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },

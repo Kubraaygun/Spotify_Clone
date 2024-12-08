@@ -48,7 +48,7 @@ const SongInfoScreen = () => {
             <MaterialCommunityIcons
               name="cross-bolnisi"
               size={24}
-              color="#1DB954"
+              color="white"
             />
 
             <Pressable style={styles.playButton}>
@@ -60,11 +60,10 @@ const SongInfoScreen = () => {
         <View>
           <View style={styles.infoView}>
             <View style={styles.infoContainer}>
-              <Text style={styles.infoText}>Album {name}</Text>
-              <Text style={styles.infoText}>Artist {artist}</Text>
-              <Text style={styles.infoText}>Year {year}</Text>
+              <Text style={styles.infoText}>Album</Text>
+              <Text style={styles.infoText}>Artist</Text>
+              <Text style={styles.infoText}>Year</Text>
             </View>
-            <Entypo name="dots-three-vertical" size={24} color="white" />
           </View>
         </View>
       </ScrollView>
@@ -105,46 +104,14 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: 'bold',
   },
-  controlView: {
-    flexDirection: 'row',
-    marginHorizontal: 10,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  downloadButton: {
-    backgroundColor: '#1DB954',
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  playButtonView: {
-    flexDirection: 'row',
-    gap: 10,
-    alignItems: 'center',
-  },
-  playButton: {
-    backgroundColor: '#1DB954',
-    width: 60,
-    height: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 30,
-  },
-  infoView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-    marginTop: 10,
-  },
-  infoContainer: {
-    gap: 5,
-  },
+  controlView: {},
+  downloadButton: {},
+  playButtonView: {},
+  playButton: {},
+  infoView: {},
+  infoContainer: {},
   infoText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: '500',
+    color: '#909090',
+    fontSize: 13,
   },
 });
