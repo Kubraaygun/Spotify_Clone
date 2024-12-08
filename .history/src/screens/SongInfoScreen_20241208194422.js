@@ -51,7 +51,7 @@ const SongInfoScreen = () => {
               color="white"
             />
 
-            <Pressable style={styles.playButton}>
+            <Pressable>
               <Entypo name="controller-play" size={24} color="white" />
             </Pressable>
           </View>
@@ -97,5 +97,4 @@ const styles = StyleSheet.create({
   controlView: {},
   downloadButton: {},
   playButtonView: {},
-  playButton: {},
 });
