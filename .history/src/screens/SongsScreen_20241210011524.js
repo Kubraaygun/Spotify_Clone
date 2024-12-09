@@ -6,12 +6,11 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 const SongsScreen = () => {
-  const [searchText, setSearchText] = useState('Turkiye"de populer kulturler');
   return (
     <LinearGradient colors={['#614385', '#516395']} style={{flex: 1}}>
       <ScrollView style={{flex: 1, marginTop: 50}}>
@@ -52,7 +51,6 @@ const SongsScreen = () => {
                   width: '85%',
                   color: 'white',
                 }}
-                onChangeText={setSearchText}
               />
             </Pressable>
           </Pressable>
@@ -62,7 +60,9 @@ const SongsScreen = () => {
           <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>
             Search Songs
           </Text>
-          <Text style={{fontSize: 13, color: 'white', marginTop: 5}}>S</Text>
+          <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>
+            S
+          </Text>
         </View>
       </ScrollView>
     </LinearGradient>
