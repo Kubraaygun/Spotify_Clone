@@ -24,11 +24,9 @@ export const ProfileProvider = ({children}) => {
     };
     try {
       const response = await axios.request(options);
-      setProfileData(response.data);
-      setLoading(response.data);
+      console.log(response.data);
     } catch (error) {
-      setError(error);
-      setLoading(false);
+      console.log(error);
     }
   };
 

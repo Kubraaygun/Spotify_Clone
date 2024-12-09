@@ -1,5 +1,4 @@
-import axios from 'axios';
-import {createContext, useEffect, useState} from 'react';
+import {createContext, useState} from 'react';
 
 export const ProfileContext = createContext();
 
@@ -22,21 +21,7 @@ export const ProfileProvider = ({children}) => {
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
       },
     };
-    try {
-      const response = await axios.request(options);
-      setProfileData(response.data);
-      setLoading(response.data);
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-    }
   };
-
-  useEffect(() => {
-    getProfileData();
-    setLoading(false);
-    setError(null); // Reset error when component unmounts to avoid memory leaks.
-  }, []);
 
   return (
     <ProfileContext.Provider value={{profileData, loading, error}}>

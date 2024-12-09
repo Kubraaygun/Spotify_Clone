@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {createContext, useEffect, useState} from 'react';
+import {createContext, useState} from 'react';
 
 export const ProfileContext = createContext();
 
@@ -24,19 +24,11 @@ export const ProfileProvider = ({children}) => {
     };
     try {
       const response = await axios.request(options);
-      setProfileData(response.data);
-      setLoading(response.data);
+      console.log(response.data);
     } catch (error) {
-      setError(error);
-      setLoading(false);
+      console.log(error);
     }
   };
-
-  useEffect(() => {
-    getProfileData();
-    setLoading(false);
-    setError(null); // Reset error when component unmounts to avoid memory leaks.
-  }, []);
 
   return (
     <ProfileContext.Provider value={{profileData, loading, error}}>
