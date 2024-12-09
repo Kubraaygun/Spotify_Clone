@@ -22,9 +22,9 @@ const ProfileScreen = () => {
         </View>
         <Text style={styles.sectionTitle}>Your Playlist</Text>
         <View style={styles.playListContainer}>
-          {public_playlists?.map(playlist => (
+          {public_playlist?.map(playlist => (
             <View
-              key={playlist.uri}
+              key={playlists.uri}
               style={{
                 marginVertical: 10,
                 flexDirection: 'row',
