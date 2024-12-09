@@ -6,7 +6,7 @@ import {ProfileContext} from '../context/ProfileContext';
 const ProfileScreen = () => {
   const {profileData, loading, error} = useContext(ProfileContext);
 
-  const {name, image_url, followers_count, public_playlists} = profileData;
+  const {name, image_url, followers_count, public_playlist} = profileData;
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
       <ScrollView style={{marginTop: 50}}>
@@ -22,15 +22,8 @@ const ProfileScreen = () => {
         </View>
         <Text style={styles.sectionTitle}>Your Playlist</Text>
         <View style={styles.playListContainer}>
-          {public_playlists?.map(playlist => (
-            <View
-              key={playlist.uri}
-              style={{
-                marginVertical: 10,
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: 5,
-              }}>
+          {public_playlist?.map(playlist => (
+            <View style={{marginVertical: 10}}>
               <Image
                 source={{uri: 'https://picsum.photos/200/300'}}
                 style={styles.playlistImage}

@@ -1,0 +1,32 @@
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import React, {useContext} from 'react';
+import LinearGradient from 'react-native-linear-gradient';
+import {ProfileContext} from '../context/ProfileContext';
+
+const ProfileScreen = () => {
+  const {profileData, loading, error} = useContext(ProfileContext);
+
+  const {name,image url, followers_count,public_playlist}
+  return (
+    <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
+      <ScrollView style={{marginTop: 50}}>
+        <View style={{padding: 15}}>
+          <View style={styles.profileContainer}>
+            <Image />
+          </View>
+
+          <View>
+            <Text></Text>
+            <Text></Text>
+          </View>
+        </View>
+      </ScrollView>
+    </LinearGradient>
+  );
+};
+
+export default ProfileScreen;
+
+const styles = StyleSheet.create({
+  profileContainer: {},
+});

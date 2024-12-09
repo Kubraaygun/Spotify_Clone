@@ -6,42 +6,22 @@ import {ProfileContext} from '../context/ProfileContext';
 const ProfileScreen = () => {
   const {profileData, loading, error} = useContext(ProfileContext);
 
-  const {name, image_url, followers_count, public_playlists} = profileData;
+  const {name, image_url, followers_count, public_playlist} = profileData;
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
       <ScrollView style={{marginTop: 50}}>
         <View style={{padding: 15}}>
           <View style={styles.profileContainer}>
             <Image source={{uri: image_url}} style={styles.profileImage} />
+          </View>
 
-            <View>
-              <Text style={styles.profileName}>{name}</Text>
-              <Text style={styles.profileFollowers}>{followers_count}</Text>
-            </View>
+          <View>
+            <Text style={styles.profileName}>{name}</Text>
+            <Text style={styles.profileFollowers}>{followers_count}</Text>
           </View>
         </View>
         <Text style={styles.sectionTitle}>Your Playlist</Text>
-        <View style={styles.playListContainer}>
-          {public_playlists?.map(playlist => (
-            <View
-              key={playlist.uri}
-              style={{
-                marginVertical: 10,
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: 5,
-              }}>
-              <Image
-                source={{uri: 'https://picsum.photos/200/300'}}
-                style={styles.playlistImage}
-              />
-              <View>
-                <Text>{playlist.name}</Text>
-                <Text>{playlist.followers_count}</Text>
-              </View>
-            </View>
-          ))}
-        </View>
+        <View style={styles.playListContainer}></View>
       </ScrollView>
     </LinearGradient>
   );
@@ -50,12 +30,7 @@ const ProfileScreen = () => {
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
-  profileContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
-
+  profileContainer: {},
   profileImage: {
     width: 40,
     height: 40,
@@ -74,12 +49,6 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     color: 'white',
-    fontSize: 20,
-    fontWeight: '500',
-    marginHorizontal: 12,
   },
-  playListContainer: {
-    padding: 15,
-  },
-  playlistImage: {},
+  playListContainer: {},
 });
