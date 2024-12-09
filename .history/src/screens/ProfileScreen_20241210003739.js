@@ -27,9 +27,7 @@ const ProfileScreen = () => {
 
             <View>
               <Text style={styles.profileName}>{name}</Text>
-              <Text style={styles.profileFollowers}>
-                {formatFollowers(followers_count)}
-              </Text>
+              <Text style={styles.profileFollowers}>{followers_count}</Text>
             </View>
           </View>
         </View>
@@ -51,7 +49,7 @@ const ProfileScreen = () => {
               <View>
                 <Text style={styles.playlistName}>{playlist.name}</Text>
                 <Text style={styles.playlistFollowers}>
-                  {formatFollowers(playlist.followers_count)}
+                  {playlist.followers_count}
                 </Text>
               </View>
             </View>
