@@ -6,7 +6,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -32,13 +32,10 @@ const SongsScreen = () => {
 
     try {
       const response = await axios.request(options);
-      console.log(response.data.tracks.hits);
+      console.log(response.data);
     } catch (error) {}
   };
 
-  useEffect(() => {
-    handleSearch();
-  }, []);
   return (
     <LinearGradient colors={['#614385', '#516395']} style={{flex: 1}}>
       <ScrollView style={{flex: 1, marginTop: 50}}>

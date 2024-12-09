@@ -6,7 +6,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -14,7 +14,7 @@ import axios from 'axios';
 const SongsScreen = () => {
   const [searchText, setSearchText] = useState('Turkiye"de populer kulturler');
 
-  const handleSearch = async () => {
+  const handleSearc = async () => {
     const options = {
       method: 'GET',
       url: 'https://shazam.p.rapidapi.com/search',
@@ -32,13 +32,9 @@ const SongsScreen = () => {
 
     try {
       const response = await axios.request(options);
-      console.log(response.data.tracks.hits);
     } catch (error) {}
   };
 
-  useEffect(() => {
-    handleSearch();
-  }, []);
   return (
     <LinearGradient colors={['#614385', '#516395']} style={{flex: 1}}>
       <ScrollView style={{flex: 1, marginTop: 50}}>
