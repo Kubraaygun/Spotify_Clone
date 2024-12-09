@@ -2,22 +2,11 @@ import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useContext} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {ProfileContext} from '../context/ProfileContext';
-import round from 'lodash/round';
 
 const ProfileScreen = () => {
   const {profileData, loading, error} = useContext(ProfileContext);
 
   const {name, image_url, followers_count, public_playlists} = profileData;
-
-  const formatFollowers = count => {
-    if (count >= 10000000) {
-      return `${round(count / 10000000, 1)}M`;
-    }
-    if (count >= 1000) {
-      return `${round(count / 1000, 1)}K`;
-    }
-  };
-
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{flex: 1}}>
       <ScrollView style={{marginTop: 50}}>
@@ -27,9 +16,7 @@ const ProfileScreen = () => {
 
             <View>
               <Text style={styles.profileName}>{name}</Text>
-              <Text style={styles.profileFollowers}>
-                {formatFollowers(followers_count)}
-              </Text>
+              <Text style={styles.profileFollowers}>{followers_count}</Text>
             </View>
           </View>
         </View>
@@ -51,7 +38,7 @@ const ProfileScreen = () => {
               <View>
                 <Text style={styles.playlistName}>{playlist.name}</Text>
                 <Text style={styles.playlistFollowers}>
-                  {formatFollowers(playlist.followers_count)}
+                  {playlist.followers_count}
                 </Text>
               </View>
             </View>
@@ -96,16 +83,6 @@ const styles = StyleSheet.create({
   playListContainer: {
     padding: 15,
   },
-  playlistImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 5,
-  },
-  playlistName: {
-    color: 'white',
-  },
-  playlistFollowers: {
-    color: 'white',
-    marginTop: 7,
-  },
+  playlistImage: {},
+  playlistName: {},
 });
