@@ -28,7 +28,6 @@ export const ProfileProvider = ({children}) => {
       setLoading(response.data);
     } catch (error) {
       setError(error);
-      setLoading(false);
     }
   };
 

@@ -27,8 +27,7 @@ export const ProfileProvider = ({children}) => {
       setProfileData(response.data);
       setLoading(response.data);
     } catch (error) {
-      setError(error);
-      setLoading(false);
+      console.log(error);
     }
   };
 
