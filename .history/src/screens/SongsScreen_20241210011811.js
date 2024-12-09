@@ -52,7 +52,6 @@ const SongsScreen = () => {
                   width: '85%',
                   color: 'white',
                 }}
-                onChangeText={setSearchText}
               />
             </Pressable>
           </Pressable>
