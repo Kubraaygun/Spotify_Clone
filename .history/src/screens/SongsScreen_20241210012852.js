@@ -37,10 +37,7 @@ const SongsScreen = () => {
       const response = await axios.request(options);
       setSearchTracks(response.data.tracks.hits);
       setLoading(false);
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

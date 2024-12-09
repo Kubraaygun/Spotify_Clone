@@ -14,8 +14,6 @@ import axios from 'axios';
 const SongsScreen = () => {
   const [searchText, setSearchText] = useState('Turkiye"de populer kulturler');
   const [searchedTracks, setSearchTracks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const handleSearch = async () => {
     const options = {
@@ -36,11 +34,7 @@ const SongsScreen = () => {
     try {
       const response = await axios.request(options);
       setSearchTracks(response.data.tracks.hits);
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
