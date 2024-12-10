@@ -113,15 +113,9 @@ const SongsScreen = () => {
     //Oynatma ve durdurma tam tersi cevir
     setIsPlaying(!isPlaying);
   };
-  //Muzigi 10 sn geri al
+
   const seekBackward = async () => {
     const position = await TrackPlayer.getPosition();
-    await TrackPlayer.seekTo(position - 10);
-  };
-  // Muzigi 10 sn ileri al
-  const seekForward = async () => {
-    const position = await TrackPlayer.getPosition();
-    await TrackPlayer.seekTo(position + 10);
   };
 
   useEffect(() => {
