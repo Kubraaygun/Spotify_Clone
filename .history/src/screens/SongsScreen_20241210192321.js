@@ -15,17 +15,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import axios from 'axios';
 import Entypo from 'react-native-vector-icons/Entypo';
-import TrackPlayer, {useProgress} from 'react-native-track-player';
-import Modal from 'react-native-modal';
-
 const SongsScreen = () => {
-  const [searchText, setSearchText] = useState('Türkiye de popüler müzikler');
+  const [searchText, setSearchText] = useState('Turkiye"de populer kulturler');
   const [searchedTracks, setSearchTracks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedTrack, setSelectedTrack] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false);
 
   const handleSearch = async () => {
     const options = {
@@ -50,14 +44,6 @@ const SongsScreen = () => {
     } catch (error) {
       setError(error);
       setLoading(false);
-    }
-  };
-
-  const setupPlayer = async () => {
-    try {
-      await TrackPlayer.setupPlayer();
-    } catch (error) {
-      console.log('Error stting up player', error);
     }
   };
 

@@ -15,24 +15,18 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import axios from 'axios';
 import Entypo from 'react-native-vector-icons/Entypo';
-import TrackPlayer, {useProgress} from 'react-native-track-player';
-import Modal from 'react-native-modal';
-
 const SongsScreen = () => {
-  const [searchText, setSearchText] = useState('Türkiye de popüler müzikler');
+  const [searchText, setSearchText] = useState('Turkiye"de populer kulturler');
   const [searchedTracks, setSearchTracks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedTrack, setSelectedTrack] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false);
 
   const handleSearch = async () => {
     const options = {
       method: 'GET',
       url: 'https://shazam.p.rapidapi.com/search',
       params: {
-        term: searchText,
+        term: 'teoman',
         locale: 'tr-TR',
         offset: '0',
         limit: '5',
@@ -53,20 +47,12 @@ const SongsScreen = () => {
     }
   };
 
-  const setupPlayer = async () => {
-    try {
-      await TrackPlayer.setupPlayer();
-    } catch (error) {
-      console.log('Error stting up player', error);
-    }
-  };
-
   useEffect(() => {
     handleSearch();
   }, []);
   return (
     <LinearGradient colors={['#614385', '#516395']} style={{flex: 1}}>
-      <View style={{flex: 1, marginTop: 50}}>
+      <ScrollView style={{flex: 1, marginTop: 50}}>
         <View
           style={{
             flexDirection: 'row',
@@ -141,7 +127,7 @@ const SongsScreen = () => {
             )}
           />
         )}
-      </View>
+      </ScrollView>
     </LinearGradient>
   );
 };

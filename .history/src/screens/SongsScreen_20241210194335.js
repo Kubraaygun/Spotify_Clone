@@ -53,14 +53,6 @@ const SongsScreen = () => {
     }
   };
 
-  const setupPlayer = async () => {
-    try {
-      await TrackPlayer.setupPlayer();
-    } catch (error) {
-      console.log('Error stting up player', error);
-    }
-  };
-
   useEffect(() => {
     handleSearch();
   }, []);
