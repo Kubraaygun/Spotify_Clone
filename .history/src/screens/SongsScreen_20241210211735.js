@@ -22,7 +22,6 @@ import {useNavigation} from '@react-navigation/native';
 
 const SongsScreen = () => {
   const navigation = useNavigation();
-  const progress = useProgress();
   const [searchText, setSearchText] = useState('Türkiye de popüler müzikler');
   const [searchedTracks, setSearchTracks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -108,7 +107,7 @@ const SongsScreen = () => {
     const mins = Math.floor(seconds / 60);
     // Toplam saniye sayisindan geriye kaalan saniyeyi hesapla
     const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    return `${mins}:${secs < 10 ? '0' : ''}`;
   };
 
   const togglePlayback = async () => {
@@ -251,116 +250,11 @@ const SongsScreen = () => {
             <Entypo name="dots-three-vertical" size={24} color="white" />
           </View>
 
-          <View style={{padding: 10, marginTop: 20}}>
+          <View>
             <Image
               source={{uri: selectedTrack?.images.coverart}}
-              style={{width: '100%', height: 330, borderRadius: 4}}
+              style={{width: '100%', height: 350}}
             />
-
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginTop: 20,
-              }}>
-              <View>
-                <Text
-                  style={{fontSize: 18, fontWeight: 'bold', color: 'white'}}>
-                  {selectedTrack?.title}
-                </Text>
-                <Text
-                  style={{fontSize: 18, fontWeight: 'bold', color: 'white'}}>
-                  {selectedTrack?.subtitle}
-                </Text>
-              </View>
-
-              <AntDesign name="heart" size={24} color="#1DB954" />
-            </View>
-
-            <View style={{marginTop: 10}}>
-              <View
-                style={{
-                  width: '100%',
-                  marginTop: 10,
-                  height: 3,
-                  backgroundColor: 'gray',
-                  borderRadius: 5,
-                }}>
-                <View
-                  style={[
-                    styles.progressbar,
-                    {
-                      width: `${
-                        (progress.position / progress.duration) * 100
-                      }%`,
-                    },
-                  ]}
-                />
-                <View
-                  style={{
-                    position: 'absolute',
-                    top: -5,
-                    width: 10,
-                    height: 10,
-                    backgroundColor: 'white',
-                    borderRadius: 5,
-                    left: `${(progress.position / progress.duration) * 100}%`,
-                  }}
-                />
-              </View>
-              <View
-                style={{
-                  marginTop: 12,
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}>
-                <Text style={{color: 'white', fontSize: 15}}>
-                  {formatTime(progress.position)}
-                </Text>
-                <Text style={{color: 'white', fontSize: 15}}>
-                  {formatTime(progress.duration)}
-                </Text>
-              </View>
-
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  marginTop: 18,
-                  alignItems: 'center',
-                }}>
-                <Pressable onPress={seekBackward}>
-                  <Entypo
-                    name="controller-fast-backward"
-                    size={30}
-                    color="white"
-                  />
-                </Pressable>
-                <Pressable>
-                  <Ionicons name="play-skip-back" size={30} color="white" />
-                </Pressable>
-
-                <Pressable onPress={togglePlayback}>
-                  {isPlaying ? (
-                    <AntDesign name="pausecircle" size={60} color="white" />
-                  ) : (
-                    <Entypo name="controller-play" size={60} color="white" />
-                  )}
-                </Pressable>
-
-                <Pressable>
-                  <Ionicons name="play-skip-forward" size={30} color="white" />
-                </Pressable>
-                <Pressable onPress={seekForward}>
-                  <Entypo
-                    name="controller-fast-forward"
-                    size={30}
-                    color="white"
-                  />
-                </Pressable>
-              </View>
-            </View>
           </View>
         </View>
       </Modal>
@@ -396,9 +290,5 @@ const styles = StyleSheet.create({
   artistName: {
     fontSize: 14,
     color: '#FFE3E3',
-  },
-  progressbar: {
-    height: '100%',
-    backgroundColor: 'white',
   },
 });

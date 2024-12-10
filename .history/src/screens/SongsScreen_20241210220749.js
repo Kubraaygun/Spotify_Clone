@@ -337,7 +337,7 @@ const SongsScreen = () => {
                     color="white"
                   />
                 </Pressable>
-                <Pressable>
+>
                   <Ionicons name="play-skip-back" size={30} color="white" />
                 </Pressable>
 

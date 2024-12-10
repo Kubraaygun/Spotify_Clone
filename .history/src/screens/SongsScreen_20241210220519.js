@@ -133,6 +133,49 @@ const SongsScreen = () => {
     await TrackPlayer.seekTo(position + 10);
   };
 
+  Kodunuzda, şarkılar arasında geçiş yapmayı sağlamaya çalışıyorsunuz ancak bazı mantıksal hatalar ve eksiklikler olabilir. Özellikle handleSkipBack fonksiyonunda, şarkı listesinde geriye gitme işleminde bir sorun olabilir. Şu anki yaklaşımınızda, mevcut şarkının ID'sini aldıktan sonra listenin bir önceki şarkısına geçmeye çalışıyorsunuz ancak bazı durumlarda bu işlem doğru şekilde gerçekleşmeyebilir.
+
+  Önerilen çözüm:
+  
+  TrackPlayer.getQueue() fonksiyonunu kullanarak tüm şarkıların kuyruk listesine erişiyorsunuz. Bu doğru, ancak currentIndex'i almak yerine, şu an çalan şarkının ID'sini doğrudan almanız gerekmiyor.
+  Şarkının bir önceki veya bir sonraki şarkısına geçiş yaparken, TrackPlayer.getCurrentTrack()'tan dönen ID ile doğru bir kıyaslama yapmanız önemli.
+  handleSkipBack fonksiyonundaki nextIndex hesaplamasında da hata olabilir. Yani, şu anki şarkıyı geçtikten sonra doğru şekilde sıralama yapılmadığı için sorun oluşabilir.
+  Aşağıdaki güncellenmiş fonksiyonu deneyebilirsiniz:
+  
+  Güncellenmiş handleSkipBack ve handleSkipForward Fonksiyonları:
+  javascript
+  Kodu kopyala
+  const handleSkipBack = async () => {
+    try {
+      const trackList = await TrackPlayer.getQueue(); // Şarkıların kuyruk listesi
+      const currentIndex = await TrackPlayer.getCurrentTrack(); // Şu an çalan şarkı
+      const currentTrackIndex = trackList.findIndex(track => track.id === currentIndex); // Mevcut şarkı indeksini bul
+  
+      if (currentTrackIndex > 0) { 
+        await TrackPlayer.skip(currentTrackIndex - 1); // Önceki şarkıya geç
+      } else {
+        console.log("Bu şarkı ilk şarkı, geriye geçilemez.");
+      }
+    } catch (error) {
+      console.error("Şarkıya geçişte bir hata oluştu: ", error);
+    }
+  };
+  
+  const handleSkipForward = async () => {
+    try {
+      const trackList = await TrackPlayer.getQueue(); // Şarkıların kuyruk listesi
+      const currentIndex = await TrackPlayer.getCurrentTrack(); // Şu an çalan şarkı
+      const currentTrackIndex = trackList.findIndex(track => track.id === currentIndex); // Mevcut şarkı indeksini bul
+  
+      if (currentTrackIndex < trackList.length - 1) {
+        await TrackPlayer.skip(currentTrackIndex + 1); // Sonraki şarkıya geç
+      } else {
+        console.log("Bu şarkı son şarkı, ileri geçilemez.");
+      }
+    } catch (error) {
+      console.error("Şarkıya geçişte bir hata oluştu: ", error);
+    }
+  };
   useEffect(() => {
     handleSearch();
     setupPlayer();
@@ -337,7 +380,7 @@ const SongsScreen = () => {
                     color="white"
                   />
                 </Pressable>
-                <Pressable>
+                <Pressable onPress={handleSkipBack}>
                   <Ionicons name="play-skip-back" size={30} color="white" />
                 </Pressable>
 

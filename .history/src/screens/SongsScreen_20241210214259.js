@@ -310,7 +310,7 @@ const SongsScreen = () => {
               </View>
               <View
                 style={{
-                  marginTop: 12,
+                  margiTop: 12,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -323,43 +323,24 @@ const SongsScreen = () => {
                 </Text>
               </View>
 
-              <View
+              <Vie
                 style={{
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   marginTop: 18,
                   alignItems: 'center',
                 }}>
-                <Pressable onPress={seekBackward}>
+                <Pressable>
                   <Entypo
                     name="controller-fast-backward"
-                    size={30}
+                    size={24}
                     color="white"
                   />
                 </Pressable>
                 <Pressable>
-                  <Ionicons name="play-skip-back" size={30} color="white" />
+                  <Ionicons name="play-skip-back" size={24} color="white" />
                 </Pressable>
-
-                <Pressable onPress={togglePlayback}>
-                  {isPlaying ? (
-                    <AntDesign name="pausecircle" size={60} color="white" />
-                  ) : (
-                    <Entypo name="controller-play" size={60} color="white" />
-                  )}
-                </Pressable>
-
-                <Pressable>
-                  <Ionicons name="play-skip-forward" size={30} color="white" />
-                </Pressable>
-                <Pressable onPress={seekForward}>
-                  <Entypo
-                    name="controller-fast-forward"
-                    size={30}
-                    color="white"
-                  />
-                </Pressable>
-              </View>
+              </Vie>
             </View>
           </View>
         </View>

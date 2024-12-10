@@ -333,29 +333,29 @@ const SongsScreen = () => {
                 <Pressable onPress={seekBackward}>
                   <Entypo
                     name="controller-fast-backward"
-                    size={30}
+                    size={24}
                     color="white"
                   />
                 </Pressable>
                 <Pressable>
-                  <Ionicons name="play-skip-back" size={30} color="white" />
+                  <Ionicons name="play-skip-back" size={24} color="white" />
                 </Pressable>
 
                 <Pressable onPress={togglePlayback}>
                   {isPlaying ? (
-                    <AntDesign name="pausecircle" size={60} color="white" />
+                    <AntDesign name="pausecircle" size={24} color="white" />
                   ) : (
-                    <Entypo name="controller-play" size={60} color="white" />
+                    <Entypo name="controller-play" size={24} color="white" />
                   )}
                 </Pressable>
 
                 <Pressable>
-                  <Ionicons name="play-skip-forward" size={30} color="white" />
+                  <Ionicons name="play-skip-forward" size={24} color="white" />
                 </Pressable>
-                <Pressable onPress={seekForward}>
+                <Pressable onPress={seekBackward}>
                   <Entypo
                     name="controller-fast-forward"
-                    size={30}
+                    size={24}
                     color="white"
                   />
                 </Pressable>
