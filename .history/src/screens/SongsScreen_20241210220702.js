@@ -132,6 +132,47 @@ const SongsScreen = () => {
     const position = await TrackPlayer.getPosition();
     await TrackPlayer.seekTo(position + 10);
   };
+  const handleSkipBack = async () => {
+    try {
+      const trackList = await TrackPlayer.getQueue(); // Şarkıların kuyruk listesi
+      const currentIndex = await TrackPlayer.getCurrentTrack(); // Şu an çalan şarkı
+      const currentTrackIndex = trackList.findIndex(
+        track => track.id === currentIndex,
+      ); // Mevcut şarkı indeksini bul
+
+      if (currentTrackIndex === -1) {
+        // Eğer mevcut şarkı bulunamazsa
+        console.log('Şu an çalan şarkı bulunamadı.');
+        return;
+      }
+
+      if (currentTrackIndex > 0) {
+        await TrackPlayer.skip(currentTrackIndex - 1); // Bir önceki şarkıya geç
+      } else {
+        console.log('Bu şarkı ilk şarkı, geriye geçilemez.');
+      }
+    } catch (error) {
+      console.error('Şarkıya geçişte bir hata oluştu: ', error);
+    }
+  };
+
+  const handleSkipForward = async () => {
+    try {
+      const trackList = await TrackPlayer.getQueue(); // Şarkıların kuyruk listesi
+      const currentIndex = await TrackPlayer.getCurrentTrack(); // Şu an çalan şarkı
+      const currentTrackIndex = trackList.findIndex(
+        track => track.id === currentIndex,
+      ); // Mevcut şarkı indeksini bul
+
+      if (currentTrackIndex < trackList.length - 1) {
+        await TrackPlayer.skip(currentTrackIndex + 1); // Sonraki şarkıya geç
+      } else {
+        console.log('Bu şarkı son şarkı, ileri geçilemez.');
+      }
+    } catch (error) {
+      console.error('Şarkıya geçişte bir hata oluştu: ', error);
+    }
+  };
 
   useEffect(() => {
     handleSearch();
@@ -337,7 +378,7 @@ const SongsScreen = () => {
                     color="white"
                   />
                 </Pressable>
-                <Pressable>
+                <Pressable onPress={handleSkipBack}>
                   <Ionicons name="play-skip-back" size={30} color="white" />
                 </Pressable>
 

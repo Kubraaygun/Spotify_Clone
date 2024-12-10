@@ -333,7 +333,7 @@ const SongsScreen = () => {
                 <Pressable onPress={seekBackward}>
                   <Entypo
                     name="controller-fast-backward"
-                    size={30}
+                    size={24}
                     color="white"
                   />
                 </Pressable>
@@ -355,7 +355,7 @@ const SongsScreen = () => {
                 <Pressable onPress={seekForward}>
                   <Entypo
                     name="controller-fast-forward"
-                    size={30}
+                    size={24}
                     color="white"
                   />
                 </Pressable>

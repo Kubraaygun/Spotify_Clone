@@ -132,6 +132,24 @@ const SongsScreen = () => {
     const position = await TrackPlayer.getPosition();
     await TrackPlayer.seekTo(position + 10);
   };
+  const handleSkipBack = async () => {
+    const currentIndex = await TrackPlayer.getCurrentTrack(); // Mevcut şarkının index'ini al
+    const nextIndex = currentIndex - 1; // Bir önceki şarkıya git
+    if (nextIndex >= 0) {
+      // Eğer mevcut şarkı 0'dan küçük değilse (başlangıçta değilse)
+      await TrackPlayer.skip(nextIndex); // Bir önceki şarkıya geçiş yap
+    }
+  };
+
+  const handleSkipForward = async () => {
+    const currentIndex = await TrackPlayer.getCurrentTrack(); // Mevcut şarkının index'ini al
+    const nextIndex = currentIndex + 1; // Bir sonraki şarkıya git
+    const trackList = await TrackPlayer.getQueue(); // Tüm şarkılar listesini al
+    if (nextIndex < trackList.length) {
+      // Eğer mevcut şarkı listede son değilse
+      await TrackPlayer.skip(nextIndex); // Bir sonraki şarkıya geçiş yap
+    }
+  };
 
   useEffect(() => {
     handleSearch();
@@ -337,7 +355,7 @@ const SongsScreen = () => {
                     color="white"
                   />
                 </Pressable>
-                <Pressable>
+                <Pressable onPress={handleSkipBack}>
                   <Ionicons name="play-skip-back" size={30} color="white" />
                 </Pressable>
 
