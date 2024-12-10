@@ -14,25 +14,18 @@ import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import axios from 'axios';
-import Entypo from 'react-native-vector-icons/Entypo';
-import TrackPlayer, {useProgress} from 'react-native-track-player';
-import Modal from 'react-native-modal';
-
 const SongsScreen = () => {
-  const [searchText, setSearchText] = useState('Türkiye de popüler müzikler');
+  const [searchText, setSearchText] = useState('Turkiye"de populer kulturler');
   const [searchedTracks, setSearchTracks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedTrack, setSelectedTrack] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false);
 
   const handleSearch = async () => {
     const options = {
       method: 'GET',
       url: 'https://shazam.p.rapidapi.com/search',
       params: {
-        term: searchText,
+        term: 'teoman',
         locale: 'tr-TR',
         offset: '0',
         limit: '5',
@@ -53,20 +46,12 @@ const SongsScreen = () => {
     }
   };
 
-  const setupPlayer = async () => {
-    try {
-      await TrackPlayer.setupPlayer();
-    } catch (error) {
-      console.log('Error stting up player', error);
-    }
-  };
-
   useEffect(() => {
     handleSearch();
   }, []);
   return (
     <LinearGradient colors={['#614385', '#516395']} style={{flex: 1}}>
-      <View style={{flex: 1, marginTop: 50}}>
+      <ScrollView style={{flex: 1, marginTop: 50}}>
         <View
           style={{
             flexDirection: 'row',
@@ -132,16 +117,14 @@ const SongsScreen = () => {
                   />
                   <View style={styles.trackInfo}>
                     <Text style={styles.trackName}>{item.track.title}</Text>
-                    <Text style={styles.artistName}>{item.track.subtitle}</Text>
+                    <Text style={styles.albumName}></Text>
                   </View>
-
-                  <Entypo name="controller-play" size={24} color="white" />
                 </View>
               </Pressable>
             )}
           />
         )}
-      </View>
+      </ScrollView>
     </LinearGradient>
   );
 };
@@ -149,30 +132,13 @@ const SongsScreen = () => {
 export default SongsScreen;
 
 const styles = StyleSheet.create({
-  trackContainer: {
-    padding: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
+  trackContainer: {},
   albumCover: {
     width: 60,
     height: 60,
     borderRadius: 30,
   },
-  trackInfo: {
-    flex: 1,
-    marginLeft: 10,
-  },
-  trackName: {
-    fontSize: 16,
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  artistName: {
-    fontSize: 14,
-    color: '#FFE3E3',
-  },
+  trackInfo: {},
+  trackName: {},
+  albumName: {},
 });

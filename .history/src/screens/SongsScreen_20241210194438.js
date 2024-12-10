@@ -53,9 +53,8 @@ const SongsScreen = () => {
     }
   };
 
-  const setupPlayer = async () => {
+  const setupPlayer = () => {
     try {
-      await TrackPlayer.setupPlayer();
     } catch (error) {
       console.log('Error stting up player', error);
     }
