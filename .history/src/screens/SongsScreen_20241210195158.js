@@ -60,7 +60,7 @@ const SongsScreen = () => {
        Bu islemde oynaticiyi baslatmak icin gerekli olan yapilandirma yapildi.
        */
       await TrackPlayer.setupPlayer();
-      TrackPlayer.updateOptions({
+      TrackPlayer.uodateOptions({
         capabilities: [
           TrackPlayer.CAPABILITY_PLAY,
           TrackPlayer.CAPABILITY_PAUSE,
@@ -74,59 +74,9 @@ const SongsScreen = () => {
       console.log('Error stting up player', error);
     }
   };
-  const handlePlay = async track => {
-    const trackData = {
-      id: track.track.key,
-      url: track.track.hub.actions.find(action => action.type === 'uri').uri,
-      title: track.track.title,
-      artist: track.track.subtitle,
-      artwork: track.track.images.coverart,
-    };
-    try {
-      await TrackPlayer.reset();
-      await TrackPlayer.add(trackData);
-      await TrackPlayer.play();
-      setSelectedTrack(track.track);
-      setModalVisible(true);
-      setIsPlaying(true);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const formatTime = seconds => {
-    //Toplam saniyeyi dakikaya cevir
-    const mins = Math.floor(seconds / 60);
-    // Toplam saniye sayisindan geriye kaalan saniyeyi hesapla
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs < 10 ? '0' : ''}`;
-  };
-
-  const togglePlayback = async () => {
-    if (isPlaying) {
-      //Muzik oynatiliyor ise durdur
-      await TrackPlayer.pause();
-    } else {
-      //Muzik durduruluyor ise oynat
-      await TrackPlayer.play();
-    }
-    //Oynatma ve durdurma tam tersi cevir
-    setIsPlaying(!isPlaying);
-  };
-  //Muzigi 10 sn geri al
-  const seekBackward = async () => {
-    const position = await TrackPlayer.getPosition();
-    await TrackPlayer.seekTo(position - 10);
-  };
-  // Muzigi 10 sn ileri al
-  const seekForward = async () => {
-    const position = await TrackPlayer.getPosition();
-    await TrackPlayer.seekTo(position + 10);
-  };
 
   useEffect(() => {
     handleSearch();
-    setupPlayer();
   }, []);
   return (
     <LinearGradient colors={['#614385', '#516395']} style={{flex: 1}}>

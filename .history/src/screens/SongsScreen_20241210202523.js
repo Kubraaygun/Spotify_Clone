@@ -94,36 +94,6 @@ const SongsScreen = () => {
     }
   };
 
-  const formatTime = seconds => {
-    //Toplam saniyeyi dakikaya cevir
-    const mins = Math.floor(seconds / 60);
-    // Toplam saniye sayisindan geriye kaalan saniyeyi hesapla
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs < 10 ? '0' : ''}`;
-  };
-
-  const togglePlayback = async () => {
-    if (isPlaying) {
-      //Muzik oynatiliyor ise durdur
-      await TrackPlayer.pause();
-    } else {
-      //Muzik durduruluyor ise oynat
-      await TrackPlayer.play();
-    }
-    //Oynatma ve durdurma tam tersi cevir
-    setIsPlaying(!isPlaying);
-  };
-  //Muzigi 10 sn geri al
-  const seekBackward = async () => {
-    const position = await TrackPlayer.getPosition();
-    await TrackPlayer.seekTo(position - 10);
-  };
-  // Muzigi 10 sn ileri al
-  const seekForward = async () => {
-    const position = await TrackPlayer.getPosition();
-    await TrackPlayer.seekTo(position + 10);
-  };
-
   useEffect(() => {
     handleSearch();
     setupPlayer();
