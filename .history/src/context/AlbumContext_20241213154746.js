@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {createContext, useEffect, useState} from 'react';
-
+import {REACT_APP_API_KEY} from '@babel/preset-env';
 export const AlbumContext = createContext();
 
 export const AlbumsProvider = ({children}) => {
@@ -20,7 +20,7 @@ export const AlbumsProvider = ({children}) => {
         numberOfTopResults: '5',
       },
       headers: {
-        'x-rapidapi-key': '0ae73afa42msh492c768e6f710ddp1f96e6jsnc03826257744',
+        'x-rapidapi-key': REACT_APP_API_KEY,
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
       },
     };

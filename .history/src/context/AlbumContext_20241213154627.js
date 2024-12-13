@@ -1,34 +1,41 @@
 import axios from 'axios';
 import {createContext, useEffect, useState} from 'react';
 
-const ArtistContext = createContext();
+export const AlbumContext = createContext();
 
-const ArtistProvider = ({children}) => {
-  const [artists, setArtist] = useState([]);
+export const AlbumsProvider = ({children}) => {
+  const [albums, setAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const getArtist = async () => {
+  const getData = async () => {
     const options = {
       method: 'GET',
       url: 'https://spotify23.p.rapidapi.com/search/',
       params: {
-        q: 'Turkiyede populer olanlar',
-        type: 'artists',
+        q: 'Turkiye de populer olanlar',
+        type: 'albums',
         offset: '0',
         limit: '10',
         numberOfTopResults: '5',
       },
       headers: {
-        'x-rapidapi-key': '0ae73afa42msh492c768e6f710ddp1f96e6jsnc03826257744',
+        'x-rapidapi-key': REACT_APP_API_KEY,
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
       },
     };
 
     try {
       const response = await axios.request(options);
-      const data = response.data.artists.items;
-      setArtist(data);
+      const albumItems = response.data?.albums?.items?.map(item => ({
+        uri: item.data.uri,
+        name: item.data.name,
+        artist: item.data.artists.items[0].profile.name,
+        coverArt: item.data.coverArt?.sources[1]?.url,
+        year: item.data.date.year,
+      }));
+
+      setAlbums(albumItems);
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -37,16 +44,12 @@ const ArtistProvider = ({children}) => {
   };
 
   useEffect(() => {
-    getArtist();
-    setLoading(false);
-    setError(null);
+    getData();
   }, []);
 
   return (
-    <ArtistContext.Provider value={{artists, loading, error}}>
+    <AlbumContext.Provider value={{albums, loading, error}}>
       {children}
-    </ArtistContext.Provider>
+    </AlbumContext.Provider>
   );
 };
-
-export {ArtistContext, ArtistProvider};
