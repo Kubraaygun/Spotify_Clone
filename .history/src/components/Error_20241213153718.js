@@ -4,7 +4,7 @@ import React from 'react';
 const Error = ({albumsError}) => {
   return (
     <View>
-      <Text>{albumsError?.message}</Text>
+      <Text>{albumsError.message}</Text>
     </View>
   );
 };

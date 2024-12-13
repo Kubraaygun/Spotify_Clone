@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {createContext, useEffect, useState} from 'react';
-
+import {REACT_APP_API_KEY} from '@env';
 const ArtistContext = createContext();
 
 const ArtistProvider = ({children}) => {
@@ -20,7 +20,7 @@ const ArtistProvider = ({children}) => {
         numberOfTopResults: '5',
       },
       headers: {
-        'x-rapidapi-key': '***REMOVED***',
+        'x-rapidapi-key': REACT_APP_API_KEY,
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
       },
     };

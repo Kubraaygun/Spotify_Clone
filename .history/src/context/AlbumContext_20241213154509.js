@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {createContext, useEffect, useState} from 'react';
+import {REACT_APP_API_KEY} from '.env';
 
 export const AlbumContext = createContext();
 
@@ -20,7 +21,7 @@ export const AlbumsProvider = ({children}) => {
         numberOfTopResults: '5',
       },
       headers: {
-        'x-rapidapi-key': '***REMOVED***',
+        'x-rapidapi-key': REACT_APP_API_KEY,
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
       },
     };
