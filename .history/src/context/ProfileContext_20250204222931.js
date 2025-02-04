@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {createContext, useEffect, useState} from 'react';
-import {RAPIDAPI_KEY} from 'react-native-dotenv';
+
 export const ProfileContext = createContext();
 
 export const ProfileProvider = ({children}) => {

@@ -20,7 +20,7 @@ const ArtistProvider = ({children}) => {
         numberOfTopResults: '5',
       },
       headers: {
-        'x-rapidapi-key': RAPIDAPI_KEY,
+        'x-rapidapi-key': '0ae73afa42msh492c768e6f710ddp1f96e6jsnc03826257744',
         'x-rapidapi-host': 'spotify23.p.rapidapi.com',
       },
     };
