@@ -42,7 +42,7 @@ const SongsScreen = () => {
         limit: '5',
       },
       headers: {
-        'x-rapidapi-key': '***REMOVED***',
+        'x-rapidapi-key': 'YOUR_RAPIDAPI_KEY_HERE',
         'x-rapidapi-host': 'shazam.p.rapidapi.com',
       },
     };
